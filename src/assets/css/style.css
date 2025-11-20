@@ -27,7 +27,6 @@ html {
 }
 
 body {
-   
     font-family: var(--font-body);
     color: var(--color-text-base);
     background-color: var(--color-background);
@@ -69,7 +68,7 @@ h1, h2, h3, h4 {
 
 
 .container {
-    width: 80%;
+    width: 90%;
     /* max-width: 1280px; */
     margin:auto;  
 }
@@ -175,7 +174,6 @@ h1, h2, h3, h4 {
     color: var(--color-primary);
 }
 
- 
 .hero-section-with-bg {
     padding-top: 150px; 
     padding-bottom: 0.5rem;

@@ -1,0 +1,61 @@
+# Nadiya Labs - React/Vite/ 
+
+هذا المشروع هو صفحة هبوط ذات صفحة واحدة (Single-page) لـ Nadiya Labs، مبنية باستخدام React و Vite، ومُصممة بالكامل باستخدام  و ,CSS لدعم الاتجاه من اليمين لليسار (RTL) وتجربة مستخدم متجاوبة (Responsive).
+
+## متطلبات التشغيل
+تأكد من تثبيت [Node.js](https://nodejs.org/) (الإصدار 18 أو أحدث).
+
+## كيفية التشغيل محليًا
+1.  **استنساخ المستودع (Clone the repository):**
+    ```bash
+    git clone [رابط المستودع الخاص بك]
+    cd my-nadiya-labs
+    ```
+2.  **تثبيت التبعيات:**
+    ```bash
+    npm install
+    ```
+3.  **تشغيل خادم التطوير:**
+    ```bash
+    npm run dev
+    ```
+    سيتم فتح المشروع عادةً على [http://localhost:5173/](http://localhost:5173/).
+
+## تعديل الهوية البصرية والمحتوى
+
+يمكنك تعديل جميع جوانب الهوية والمحتوى بسهولة:
+### 1. الألوان والشعارات
+* **الألوان:** لتعديل الألوان الأساسية، قم بتعديل ملف `tailwind.config.js`:
+    ```javascript
+    // tailwind.config.js
+    module.exports = {
+      theme: {
+        extend: {
+          colors: {
+            'nadiya-primary': '#0F62FE',  // قم بتغيير هذه القيمة
+            'nadiya-secondary': '#00B894', // قم بتغيير هذه القيمة
+            // ...
+          },
+        },
+      },
+    };
+    ```
+* **الشعار (SVG):** استبدل placeholder "Nadiya Labs" في ملف `src/components/Header.jsx` بـ `<img>` أو بمكون React يحوي كود الـ SVG الخاص بك
+
+### 2. النصوص والمحتوى
+جميع النصوص مُخزّنة مباشرة داخل ملفات المكونات في مجلد `src/components/`.
+
+* **العناوين الرئيسية (Hero):** تجدها في `src/components/Hero.jsx`.
+* **خدماتنا ومميزاتنا:** النصوص مُعرّفة كـ مصفوفات (Arrays) في المكونات الخاصة بها (مثل `src/components/Services.jsx`)، مما يسهّل تعديلها وإضافة المزيد
+
+### 3. نموذج التواصل (Endpoint)
+تم إعداد نموذج التواصل في `src/components/ContactForm.jsx` لاستخدام وظيفة `mailto` الافتراضية.
+**لتفعيل الإرسال الحقيقي:**
+1.  قم بإلغاء التعليق على كود `fetch` في دالة `handleSubmit` في `src/components/ContactForm.jsx`.
+2.  استبدل `/api/contact` بعنوان الـ Endpoint الحقيقي للخادم الخلفي الخاص بك.
+3.  تأكد من أن الخادم مهيأ للتعامل مع طلب `POST` القادم من الواجهة الأمامية.
+
+
+تحياتي :
+سارة درويش
+
