@@ -1,0 +1,575 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700&family=Roboto:wght@400&display=swap');
+
+:root {
+  --color-primary: #0F62FE;      /* أزرق سماوي */
+  --color-secondary: #00B894;    /* أخضر فاتح */
+  --color-background: #F7FAFF;   /* خلفية الصفحة (أبيض مائل للأزرق) */
+  --color-white: #ffffff;
+  --color-text-base: #0B1B2B;    /* رمادي داكن (النص الأساسي) */
+  --color-text-muted: #4b5563;   /* للنصوص الفرعية */
+
+  --font-heading: 'Poppins', 'Inter', sans-serif;
+  --font-body: 'Roboto', 'Inter', sans-serif;
+
+  --shadow-primary: 0 10px 15px -3px rgba(15, 98, 254, 0.2), 0 4px 6px -4px rgba(15, 98, 254, 0.1);
+  --section-spacing: 5rem; /* حوالي 80px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;  
+}
+
+body {
+   
+    font-family: var(--font-body);
+    color: var(--color-text-base);
+    background-color: var(--color-background);
+    direction: rtl;  
+    line-height: 1.6;
+    /* background-image: url('../images/bgrndDots.png'); */
+    /* min-height: 100vh; */
+}
+
+
+::selection {
+color: #0a5ffdeb ;
+background-color: #00B894 ;
+}
+/* width */
+::-webkit-scrollbar {
+width:0.4rem  ;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background: #4b5563;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #0F62FE;
+border-radius:0.8rem  ;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #2e77ff;
+}
+
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700; /* bold */
+    color: var(--color-text-base);
+}
+
+
+.container {
+    width: 80%;
+    /* max-width: 1280px; */
+    margin:auto;  
+}
+
+/* فئات عامة للأقسام */
+.section-padding {
+    padding-top: var(--section-spacing);
+    padding-bottom: var(--section-spacing);
+}
+
+.section-white {
+    background-color: var(--color-white);
+}
+
+.section-title {
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-base);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.4s ease-in-out;
+}
+.logo-text:hover{
+    color: var(--color-primary);
+}
+/* زر CTA */
+.cta-button {
+    padding: 10px 24px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow-primary);
+    text-align: center;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-button:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 90%, black);
+}
+
+/* --- Navbar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    height: 80px;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.desktop-links {
+    display: none;  
+}
+
+@media (min-width: 1025px) {
+    .desktop-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+}
+
+.nav-link {
+    color: var(--color-text-base);
+    text-decoration: none;
+    padding: 0 10px;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+ 
+.hero-section-with-bg {
+    padding-top: 150px; 
+    padding-bottom: 0.5rem;
+    position: relative;
+    background-image: url('../images/N.png'); 
+    background-size: cover;  
+    background-position: center; 
+    color: var(--color-white);  
+    text-align: center; 
+    overflow: hidden;  
+}
+
+.hero-section-with-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4b5563d6;  
+    z-index: 1;  
+}
+
+ .hero-content-centered {
+    position: relative;  
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط العناصر أفقياً */
+    justify-content: center;
+    min-height: 400px; /* لضمان ارتفاع مناسب للهيرو */
+    max-width: 900px; /* لتحديد عرض النص ليكون مقروءًا */
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .hero-content-centered {
+        min-height: 500px; /* ارتفاع أكبر على الشاشات الكبيرة */
+    }
+}
+
+
+/* تعديل أنماط النص لتناسب الخلفية الداكنة */
+.hero-title {
+    font-size: 2.5rem; 
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--color-white); /* لون أبيض للعناوين */
+}
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 4rem; 
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);  
+    margin-bottom: 2rem;
+    max-width: 600px;  
+}
+
+.testimonial-tag {
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(255, 255, 255, 0.2);  
+    color: var(--color-white);  
+    border: 1px solid rgba(255, 255, 255, 0.4);  
+    border-radius: 20rem;
+    font-size: 0.875rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+/* --- About --- */
+.about-values {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+@media (min-width: 768px) {
+    .about-values {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.value-item {
+    padding: 2rem;
+    border: 0.1rem solid var(--color-primary);
+    background-color: var(--color-white);
+    box-shadow: 0 4px 0.1rem var(--color-primary);
+    border-radius: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* --- Services --- */
+.services-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.service-card {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--color-secondary);
+    border-bottom: 4px solid var(--color-secondary);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+/* --- Features --- */
+.features-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 عمود على الموبايل */
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .features-grid {
+        grid-template-columns: repeat(6, 1fr); /* 6 أعمدة على الديسك توب */
+    }
+}
+
+.feature-item{
+    padding: 1rem;
+    width: 11rem;
+    height: 11rem;
+    border:0.1rem solid var(--color-primary);
+    border-radius: 20rem;
+}
+
+.feature-item span {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Portfolio --- */
+.portfolio-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.portfolio-item {
+    background-color: var(--color-white);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    box-shadow: 0 4px 11px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Testimonials --- */
+.testimonials-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.testimonial-card {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--color-secondary);
+    border-right: 5px solid var(--color-secondary);
+}
+
+.testimonial-card blockquote {
+    font-style: italic;
+    margin: 0 0 1rem 0;
+    color: var(--color-text-muted);
+}
+
+.testimonial-card footer {
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: end;
+}
+
+/* --- Contact Form --- */
+.contact-form-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-field {
+    margin-bottom: 1.25rem;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-field input, .form-field textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 0.8rem;
+    font-family: var(--font-body);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field input:focus, .form-field textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 30%, transparent);
+    outline: none;
+}
+
+/* رسائل الحالة (النجاح/الفشل) */
+.status-success {
+    background-color: #d1fae5;
+    color: #059669;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    border-right: 4px solid #059669;
+}
+
+.status-error {
+    background-color: #fee2e2;
+    color: #ef4444;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    border-right: 4px solid #ef4444;
+}
+
+.button-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+/* --- Footer --- */
+.footer {
+    background-color:  var(--color-text-base)  ;
+    color: var(--color-text-muted);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: auto;
+}
+.pre-footer{
+    color: var(--color-background);
+    background-color: var(--color-primary) ;
+    text-align: center;
+    padding: 1rem;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--color-background);
+    margin: 0 0.75rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-links a {
+    color: var(--color-background);
+    margin: 0 0.75rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+
+/* --- إضافة أنماط الموبايل والتنقل --- */
+
+.menu-toggle {
+    display: block; /* إظهار الزر على الموبايل */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-text-base);
+    z-index: 1100; /* يجب أن يكون فوق القائمة */
+    padding: 0;
+    line-height: 1;
+}
+
+/* إخفاء الزر على الديسك توب */
+@media (min-width: 1025px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* القائمة المنسدلة (Mobile Menu) */
+.mobile-menu {
+    position: fixed;
+    top: 5rem; 
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-white); 
+    z-index: 999;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    padding: 3rem;
+    transform: translateX(100%); /* إخفاؤها خارج الشاشة في البداية */
+    transition: transform 0.3s ease-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+/* حالة الفتح */
+.mobile-menu.is-open {
+    transform: translateX(0); /* سحب القائمة للداخل */
+}
+
+.mobile-nav-link {
+    font-size: 1.25rem;
+    height: 22rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: var(--color-text-base);
+    border-bottom: 1px solid #eee;
+    transition: color 0.2s;
+}
+
+.mobile-nav-link:hover {
+    color: var(--color-primary);
+}
+
+.mobile-cta {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    padding: 12px 0; /* لجعل الزر يملأ العرض */
+}
+
+
